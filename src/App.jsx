@@ -8,6 +8,13 @@ import './App.css';
 
 function App() {
   const [page, setPage] = useState('home');
+  const [navOpen, setNavOpen] = useState(false);
+
+  // Close nav on page change (mobile)
+  const handleNavClick = (target) => {
+    setPage(target);
+    setNavOpen(false);
+  };
 
   return (
     <div className="app-container">
@@ -16,11 +23,14 @@ function App() {
           <div className="logo">
             <span className="logo-icon">💄</span> Glamour Touch
           </div>
-          <ul>
-            <li className={page === 'home' ? 'active' : ''} onClick={() => setPage('home')}>Home</li>
-            <li className={page === 'about' ? 'active' : ''} onClick={() => setPage('about')}>About</li>
-            <li className={page === 'gallery' ? 'active' : ''} onClick={() => setPage('gallery')}>Gallery</li>
-            <li className={page === 'contact' ? 'active' : ''} onClick={() => setPage('contact')}>Contact</li>
+          <button className="mobile-nav-toggle" aria-label="Open navigation" onClick={() => setNavOpen((v) => !v)}>
+            {navOpen ? '✖' : '☰'}
+          </button>
+          <ul className={navOpen ? 'open' : ''}>
+            <li className={page === 'home' ? 'active' : ''} onClick={() => handleNavClick('home')}>Home</li>
+            <li className={page === 'about' ? 'active' : ''} onClick={() => handleNavClick('about')}>About</li>
+            <li className={page === 'gallery' ? 'active' : ''} onClick={() => handleNavClick('gallery')}>Gallery</li>
+            <li className={page === 'contact' ? 'active' : ''} onClick={() => handleNavClick('contact')}>Contact</li>
           </ul>
         </nav>
         <div className="header-hero">
