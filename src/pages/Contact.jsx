@@ -42,6 +42,17 @@ export default function Contact() {
         <p><strong>Email:</strong> priya.makeup@example.com</p>
         <p><strong>Phone:</strong> +91 98765 43210</p>
       </div>
+      <div className="footer-socials" style={{ justifyContent: "center", marginTop: "1rem" }}>
+        <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <i className="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <i className="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <i className="fab fa-whatsapp"></i>
+        </a>
+      </div>
     </div>
   );
 }
